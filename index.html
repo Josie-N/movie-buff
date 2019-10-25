@@ -15,11 +15,15 @@
             const movieData = JSON.parse(ajaxCall.responseText);
             let html = '';
             movieData.Search.forEach(movie => {
-              html += `<h2> ${movie.Title} </h2>
-                       <img src="${movie.Poster}">`;
+              if(movie.Poster === 'N/A') {
+                html += `<h2> ${movie.Title} </h2>
+                <img src="./filler-photo.jpg">`;
+              }
+              else {
+                html += `<h2> ${movie.Title} </h2>
+                         <img src="${movie.Poster}">`;
+              }
             });
-            // const html = `<h2> ${movieData.Title} </h2>
-            //               <img src="${movieData.Poster}">`;
             document.getElementById('ajax').innerHTML = html;
           }
         }
