@@ -8,12 +8,19 @@
     <script>
       function fetchMovie() {
         const searchInput = document.getElementById('search-input');
-        var ajaxCall = new XMLHttpRequest();
-        ajaxCall.open('GET', `http://www.omdbapi.com/?apikey=3b0628b0&t=${searchInput.value}`);
+        const ajaxCall = new XMLHttpRequest();
+        ajaxCall.open('GET', `http://www.omdbapi.com/?apikey=3b0628b0&s=${searchInput.value}`);
         ajaxCall.onreadystatechange = function() {
           if(ajaxCall.readyState === 4) {
-            var object = JSON.parse(ajaxCall.responseText);
-            document.getElementById('ajax').innerHTML = `<h2> ${object.Title} </h2>`;
+            const movieData = JSON.parse(ajaxCall.responseText);
+            let html = '';
+            movieData.Search.forEach(movie => {
+              html += `<h2> ${movie.Title} </h2>
+                       <img src="${movie.Poster}">`;
+            });
+            // const html = `<h2> ${movieData.Title} </h2>
+            //               <img src="${movieData.Poster}">`;
+            document.getElementById('ajax').innerHTML = html;
           }
         }
         ajaxCall.send();
