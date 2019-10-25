@@ -5,7 +5,15 @@
     <link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css">
     <title>AJAX with JavaScript</title>
-    <script>       
+    <script>
+      var ajaxCall = new XMLHttpRequest();
+      ajaxCall.open('GET', './intro.html');
+      ajaxCall.onreadystatechange = function() {
+        if(ajaxCall.readyState === 4) {
+          document.getElementById('ajax').innerHTML = ajaxCall.responseText;
+        }
+      }  
+      ajaxCall.send();
     </script>
   </head>
   <body>
