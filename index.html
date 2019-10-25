@@ -7,8 +7,9 @@
     <title>AJAX with JavaScript</title>
     <script>
       function fetchMovie() {
+        const searchInput = document.getElementById('search-input');
         var ajaxCall = new XMLHttpRequest();
-        ajaxCall.open('GET', './movie-details.json');
+        ajaxCall.open('GET', `http://www.omdbapi.com/?apikey=3b0628b0&t=${searchInput.value}`);
         ajaxCall.onreadystatechange = function() {
           if(ajaxCall.readyState === 4) {
             var object = JSON.parse(ajaxCall.responseText);
@@ -27,6 +28,7 @@
             <div class="heading">
               <h1>Bring on the AJAX</h1>
             </div>
+            <input id="search-input" type="text">
             <button onClick="fetchMovie()">Let's go!</button>
             <div id="ajax">
               
