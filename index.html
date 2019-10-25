@@ -6,14 +6,17 @@
     <link rel="stylesheet" href="css/main.css">
     <title>AJAX with JavaScript</title>
     <script>
-      var ajaxCall = new XMLHttpRequest();
-      ajaxCall.open('GET', './intro.html');
-      ajaxCall.onreadystatechange = function() {
-        if(ajaxCall.readyState === 4) {
-          document.getElementById('ajax').innerHTML = ajaxCall.responseText;
+      function fetchMovie() {
+        var ajaxCall = new XMLHttpRequest();
+        ajaxCall.open('GET', './movie-details.json');
+        ajaxCall.onreadystatechange = function() {
+          if(ajaxCall.readyState === 4) {
+            var object = JSON.parse(ajaxCall.responseText);
+            document.getElementById('ajax').innerHTML = `<h2> ${object.Title} </h2>`;
+          }
         }
-      }  
-      ajaxCall.send();
+        ajaxCall.send();
+      }
     </script>
   </head>
   <body>
@@ -24,6 +27,7 @@
             <div class="heading">
               <h1>Bring on the AJAX</h1>
             </div>
+            <button onClick="fetchMovie()">Let's go!</button>
             <div id="ajax">
               
             </div>
