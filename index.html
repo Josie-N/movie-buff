@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="//fonts.googleapis.com/css?family=Varela+Round"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="./semantic.min.css" />
+    <link rel="stylesheet" href="./main.css" />
+    <title>Search for your favorite movie</title>
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <div class="grid-container centered">
+      <div class="grid-100">
+        <div class="contained">
+          <div class="grid-100">
+            <div class="heading">
+              <h1>What's your favorite movie?</h1>
+            </div>
+
+            <div class="container">
+              <div class="ui input massive search-input-container">
+                <input id="search-input" type="text" />
+              </div>
+              <button
+                onClick="fetchMovie()"
+                class="medium teal ui button search-input-button"
+              >
+                Let's go!
+              </button>
+              <button
+                onClick="reset()"
+                class="medium basic ui button search-input-button"
+              >
+                Reset
+              </button>
+            </div>
+
+            <div id="ajax"><img src="./filler-photo.jpg" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
