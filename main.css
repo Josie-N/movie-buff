@@ -335,3 +335,14 @@ p {
 .response p {
   margin: 0;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 300px 125px 125px;
+  grid-column-gap: 10px;
+  align-items: center;
+}
+
+.search-input-button {
+  height: 45.25px;
+}
