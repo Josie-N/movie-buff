@@ -21,24 +21,20 @@
               <h1>What's your favorite movie?</h1>
             </div>
 
-            <div class="container">
-              <div class="ui input massive search-input-container">
-                <input id="search-input" type="text" />
+            <form onsubmit="fetchMovie(); return false;">
+              <div class="container">
+                <div class="ui input massive search-input-container">
+                  <input id="search-input" type="text" autocomplete="off" />
+                </div>
+                <button
+                  type="button"
+                  onclick="reset()"
+                  class="medium basic ui button search-input-button"
+                >
+                  Reset
+                </button>
               </div>
-              <button
-                onClick="fetchMovie()"
-                class="medium teal ui button search-input-button"
-              >
-                Let's go!
-              </button>
-              <button
-                onClick="reset()"
-                class="medium basic ui button search-input-button"
-              >
-                Reset
-              </button>
-            </div>
-
+            </form>
             <div id="ajax"><img src="./filler-photo.jpg" /></div>
           </div>
         </div>
