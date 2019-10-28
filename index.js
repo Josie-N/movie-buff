@@ -1,9 +1,9 @@
-function fetchMovie() {
+function fetchMovie(event) {
   const searchInput = document.getElementById("search-input");
   const ajaxCall = new XMLHttpRequest();
   ajaxCall.open(
     "GET",
-    `http://www.omdbapi.com/?apikey=3b0628b0&s=${searchInput.value}`
+    `https://www.omdbapi.com/?apikey=3b0628b0&s=${searchInput.value}`
   );
   ajaxCall.onreadystatechange = function() {
     if (ajaxCall.readyState === 4 && ajaxCall.status == 200) {
